@@ -20,9 +20,11 @@ jobs:
       - name: Build
         run: |
           cd EDK-II
-          cmd /c dir
-          ls
-          pwd
+          msbuild /t:build EDK-II.sln /p:Platform=x64 -maxcpucount:8
+
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+
       - name: Build
         run: |
           cd rainbow
