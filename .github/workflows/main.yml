@@ -18,8 +18,9 @@ jobs:
         uses: ilammy/setup-nasm@v1.5.1
 
       - name: Build
-        shell: bash
-        run: EDK-II/edksetup.bat
+        run: |
+          pwd
+          ls
       - name: Build
         run: |
           cd rainbow
