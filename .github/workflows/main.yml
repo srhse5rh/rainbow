@@ -19,8 +19,10 @@ jobs:
 
       - name: Build
         run: |
-          pwd
+          cd EDK-II
+          cmd /c dir
           ls
+          pwd
       - name: Build
         run: |
           cd rainbow
