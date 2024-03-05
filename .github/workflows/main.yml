@@ -2,6 +2,7 @@ name: CI
 
 on:
   workflow_dispatch:
+  push:
 
 jobs:
   Build_x64:
@@ -17,13 +18,13 @@ jobs:
       - name: Set up NASM
         uses: ilammy/setup-nasm@v1.5.1
 
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+
       - name: Build
         run: |
           cd EDK-II
           msbuild /t:build EDK-II.sln /p:Platform=x64 -maxcpucount:8
-
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
 
       - name: Build
         run: |
