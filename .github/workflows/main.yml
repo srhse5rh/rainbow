@@ -18,8 +18,8 @@ jobs:
         uses: ilammy/setup-nasm@v1.5.1
 
       - name: Build
-        run: |
-          .\EDK-II\edksetup.bat
+        shell: bash
+        run: EDK-II/edksetup.bat
       - name: Build
         run: |
           cd rainbow
