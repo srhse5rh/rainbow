@@ -10,14 +10,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          path: rainbow
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          repository: ionescu007/VisualUefi
-          submodules: true
-          path: VisualUefi
 
       - name: Setup msbuild
         uses: microsoft/setup-msbuild@v2
@@ -27,11 +19,12 @@ jobs:
 
       - name: Build
         run: |
-          cd VisualUefi\EDK-II
+          cd EDK-II
           msbuild /t:build EDK-II.sln /p:Platform=x64 -maxcpucount:8
       - name: Build
         run: |
-          msbuild /t:build rainbow\rainbow\rainbow.sln /p:Platform=x64 -maxcpucount:8
+          cd rainbow
+          msbuild /t:build rainbow.sln /p:Platform=x64 -maxcpucount:8
 
       - uses: actions/upload-artifact@v4
         with:
