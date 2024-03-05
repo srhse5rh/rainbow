@@ -15,7 +15,7 @@ jobs:
         with:
           repository: ionescu007/VisualUefi
           submodules: true
-          path: VisualUefi
+          path: ../VisualUefi
 
       - name: Setup msbuild
         uses: microsoft/setup-msbuild@v2
