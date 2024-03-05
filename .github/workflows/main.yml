@@ -20,7 +20,7 @@ jobs:
       - name: Build
         run: |
           cd EDK-II
-          msbuild /t:build EDK-II.sln /p:Platform=x64 -maxcpucount:8
+          edksetup.bat
       - name: Build
         run: |
           cd rainbow
